@@ -1,18 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Said</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        #lienPPT {
+            display: none;
+            margin-top: 20px;
+        }
+        #reponse {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="div">
-        <img src="./1.jpg" alt="" srcset="" class="img" id="i1">
-        <img src="./2.jpg" alt="" srcset="" class="img" id="i2">
-        <img src="./3.jpg" alt="" srcset="" class="img" id="i3">
-        <img src="./4.jpg" alt="" srcset="" class="img" id="i4">
+
+<div class="container">
+    <h1>---Question ici :</h1>
+
+    <div id="inputContainer">
+        <input type="text" id="reponse" placeholder="Réponse..." />
+        <button onclick="verifierReponse()">Valider</button>
     </div>
-    <p>Félicitation razmote ! Rendez-vous samedi 17 février pour une journée où la quiétude et l'inspiration se confondent.</p>
+
+    <p id="lienPPT">
+        <a href="https://tonlien.com/diapo.pptx" target="_blank">Clique ici pour ouvrir le ppt</a>
+    </p>
+</div>
+
+<script>
+    function verifierReponse() {
+        let reponse = document.getElementById("reponse").value.trim().toLowerCase();
+
+        let bonneReponse = "bonjour";
+
+        if (reponse === bonneReponse) {
+            document.getElementById("inputContainer").style.display = "none";
+            document.getElementById("lienPPT").style.display = "block";
+        } else {
+            alert("Pop up mauvaise réponse");
+        }
+    }
+</script>
 </body>
 </html>
